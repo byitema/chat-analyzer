@@ -139,12 +139,12 @@ std::vector<std::pair<std::string, std::string>> parse_json(const std::string fi
 	return data;
 }
 
-std::stringstream main_run(int thread_count, int n)
+std::stringstream main_run(int thread_count, int n, const std::string filename)
 {
 	std::stringstream ss;
 	ss << "Top " + std::to_string(n) + " words...\n\n";
 	
-	std::vector<std::pair<std::string, std::string>> data = parse_json("chat.json");
+	std::vector<std::pair<std::string, std::string>> data = parse_json(filename);
 	ss << frequent_words(data, thread_count, n).str();
 
 	return ss;
@@ -163,9 +163,9 @@ std::stringstream time_test(int thread_count, int n, std::vector<std::pair<std::
 	return ss;
 }
 
-std::stringstream time_tests()
+std::stringstream time_tests(std::string filename)
 {
-	std::vector<std::pair<std::string, std::string>> data = parse_json("chat.json");
+	std::vector<std::pair<std::string, std::string>> data = parse_json(filename);
 	std::stringstream ss;
 	ss << "Time tests...\n\n";
 	
@@ -186,11 +186,9 @@ std::stringstream time_tests()
 
 int main()
 {	
-	std::cout << main_run(2, 3).str();
-
+	std::cout << main_run(2, 3, "chat.json").str();
 	std::cout << "\n\n";
-	
-	std::cout << time_tests().str();
+	std::cout << time_tests("chat.json").str();
 	
 	return 0;
 }
