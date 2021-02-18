@@ -1,0 +1,64 @@
+{
+ "name": "chat",
+ "type": "private_group",
+ "id": 654564564,
+  "messages": [
+    {
+      "id": 1,
+      "type": "message",
+      "date": "2021-02-05T12:19:35",
+      "from": "Danik",
+      "from_id": 1,
+      "text": "Hello everyone, I would like to discuss a few points before the start of the semester so that I know what to do next. How are you? It was so nice to meet you last week in Sydney at the sales meeting. How was the rest of your trip? Did you see any kangaroos? I hope you got home to Mexico City OK. Anyway, I have the documents about the new Berlin offices. We're going to be open in three months. I moved here from London just last week. They are very nice offices, and the location is perfect. There are lots of restaurants, cafés and banks in the area. There's also public transport; we are next to an U-Bahn (that is the name for the metro here). Maybe you can come and see them one day? I would love to show you Berlin, especially in the winter. You said you have never seen snow – you will see lots here!"
+    },
+    {
+      "id": 2,
+      "type": "message",
+      "date": "2021-02-05T12:19:59",
+      "from": "Artem",
+      "from_id": 2,
+      "text": "It so happened that I also studied pi, well, I understand a little the nuances of these two subjects. Both of them can be very useful to you, but there is a big nuance in teaching them. Well done, Javier, on all your hard work this term. You are always active in speaking activities, and this is great. I always enjoy reading your writing too; you have very good ideas. You can see from your marks that reading is not a problem for you. Sometimes you still make small grammar mistakes, and I think you can improve your vocabulary. I recommend you review many of the language points we studied this term. There is extra language practice in your online workbook. The area you need to work on the most is listening. I know this is difficult for you. I recommend more practice at home. Listen to English TV shows, podcasts and radio as much as possible. I can give you a list of things to listen to. I've enjoyed working with you. Have a nice holiday, and good luck for next term!"
+    },
+    {
+      "id": 3,
+      "type": "message",
+      "date": "2021-02-05T12:20:50",
+      "edited": "2021-02-05T12:21:02",
+      "from": "Vladimir",
+      "from_id": 3,
+      "text": "Therefore, I can now slightly change the approach, but it will be slightly different from what is written on the pieces of paper, so there may be differences with what the lecturer will read to you. Many studies about language learning ask the question: What makes a good language learner? There are some things that good language learners do and some things they don't do. Here are some of the most useful suggestions from studies. Think in the language you're learning outside the classroom. When you're shopping or walking down the street, remember useful words and phrases. Sometimes, when you're at home, say new words to practise your pronunciation. Do group activities. People use language to communicate with other people. A good language learner always looks for opportunities to talk with other students."
+    },
+    {
+      "id": 4,
+      "type": "message",
+      "date": "2021-02-05T12:21:25",
+      "from": "Albert",
+      "from_id": 4,
+      "text": "In connection with this poll, you generally need this. You can also make use of the gardens of the Grand West for team-building events and outdoor activities. Our indoor swimming pool, gym and 18-hole golf course will ensure that your event is relaxing and enjoyable for everyone. Whether you are looking for a conference venue or a place to have your meetings and your training days, the International Centre is the perfect modern space for your event. Conveniently located in the city centre, the International Centre is close to the shops and only a ten-minute walk to the train station."
+    },
+    {
+      "id": 5,
+      "type": "message",
+      "date": "2021-02-05T12:22:36",
+      "from": "Dima",
+      "from_id": 5,
+      "text": "Every time you're online, you are bombarded by pictures, articles, links and videos trying to tell their story. Unfortunately, not all of these stories are true. Sometimes they want you to click on another story or advertisement at their own site, other times they want to upset people for political reasons. These days it's so easy to share information. These stories circulate quickly, and the result is fake news. Look at the website where the story comes from. Does it look real? Is the text well written? Are there a variety of other stories or is it just one story? Fake news websites often use addresses that sound like real newspapers, but don't have many real stories about other topics. If you aren't sure, click on the 'About' page and look for a clear description of the organisation."
+    },
+    {
+      "id": 6,
+      "type": "message",
+      "date": "2021-02-05T12:22:36",
+      "from": "Tester",
+      "from_id": 6,
+      "text": "first"
+    },
+    {
+      "id": 7,
+      "type": "message",
+      "date": "2021-02-05T12:22:37",
+      "from": "Tester",
+      "from_id": 6,
+      "text": "second message"
+    }
+  ]
+}
