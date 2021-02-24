@@ -12,58 +12,59 @@
 #pragma warning (disable: 4996)
 
 using json = nlohmann::json;
+using namespace std;
 
-void thread_job(std::vector<std::pair<std::string, std::string>>& data, std::vector<int> indexes, std::vector<std::pair<std::string, std::vector<std::string>>> &output)
+void thread_job(vector<pair<string, string>>& data, vector<int> indexes, vector<pair<string, vector<string>>> &output)
 {
-    for (int index: indexes)
+    for (const auto index: indexes)
     {
         /*
-        std::cout << std::this_thread::get_id() << "\n";
+        cout << this_thread::get_id() << "\n";
          */
         
         //divide by words
         output[index].first = data[index].first;
         
         char* str = new char[data[index].second.length() + 1];
-        std::strcpy(str, data[index].second.c_str());
+        strcpy(str, data[index].second.c_str());
         
-        char* p = std::strtok(str, " \'\"(),.!?-\n\t");
+        char* p = strtok(str, " \'\"(),.!?;-\n\t");
         while (p != 0)
         {
             if (strlen(p) > 2)
             {
-                output[index].second.push_back(std::string(p));
+                output[index].second.push_back(string(p));
             }
-            p = std::strtok(NULL, " \'\"(),.!?;-\n\t");
+            p = strtok(NULL, " \'\"(),.!?;-\n\t");
         }
         
         //counting frequency
-        std::map<std::string, int> frequency;
-        for (std::string word: output[index].second)
+        map<string, int> frequency;
+        for (const auto& word: output[index].second)
         {
             frequency[word]++;
         }
         
         //sort output by frequency
-        std::sort(output[index].second.begin(), output[index].second.end(),
-            [&frequency](const std::string& a, const std::string& b) -> bool
+        sort(output[index].second.begin(), output[index].second.end(),
+            [&frequency](const string& a, const string& b) -> bool
             {
                 return frequency[a] > frequency[b];
             });
         
         //delete repeats
-        output[index].second.erase(std::unique(output[index].second.begin(), output[index].second.end()), output[index].second.end());
+        output[index].second.erase(unique(output[index].second.begin(), output[index].second.end()), output[index].second.end());
     }
 }
 
-std::stringstream frequent_words(std::vector<std::pair<std::string, std::string>>& data, int thread_count, int n)
+stringstream frequent_words(vector<pair<string, string>>& data, int thread_count, int n)
 {
-    std::vector<std::pair<std::string, std::vector<std::string>>> output(data.size());
+    vector<pair<string, vector<string>>> output(data.size());
     
     //count slices and start threads
-    std::vector<std::thread> threads;
+    vector<thread> threads;
     for (int i = 0; i < thread_count; i++) {
-        std::vector<int> indexes;
+        vector<int> indexes;
         for (int j = 0; j < data.size(); j++)
         {
             if ((j % thread_count) == i)
@@ -71,16 +72,16 @@ std::stringstream frequent_words(std::vector<std::pair<std::string, std::string>
                 indexes.push_back(j);
             }
         }
-        threads.push_back(std::thread(thread_job, std::ref(data), indexes, std::ref(output)));
+        threads.push_back(thread(thread_job, ref(data), indexes, ref(output)));
     }
     
-    for (std::thread& t: threads) {
+    for (auto& t: threads) {
         t.join();
     }
     
     //output
-    std::stringstream ss;
-    for (auto &pr: output)
+    stringstream ss;
+    for (const auto &pr: output)
     {
         size_t size = pr.second.size();
         ss << pr.first << ": ";
@@ -101,39 +102,39 @@ std::stringstream frequent_words(std::vector<std::pair<std::string, std::string>
     return ss;
 }
 
-std::vector<std::pair<std::string, std::string>> parse_json(const std::string filename)
+vector<pair<string, string>> parse_json(const string filename)
 {
-    std::ifstream fin(filename);
+    ifstream fin(filename);
     json chat_json = json::parse(fin);
     
-    std::map<std::string, std::string> person_messages;
-    std::string tmp_name;
+    map<string, string> person_messages;
+    string tmp_name;
     
     //parse json to the map (name, all messages string)
-    auto& messages = chat_json["messages"];
-    for (auto& message : messages)
+    const auto& messages = chat_json["messages"];
+    for (const auto& message : messages)
     {
         try
         {
-            tmp_name = message.at("from").get<std::string>();
+            tmp_name = message.at("from").get<string>();
             person_messages[tmp_name] += " ";
-            person_messages[tmp_name] += message.at("text").get<std::string>();
+            person_messages[tmp_name] += message.at("text").get<string>();
         }
-        catch (std::exception& ex)
+        catch (exception& ex)
         {
-            std::cout << ex.what() << "\n";
+            cerr << ex.what() << "\n";
         }
     }
     
     //text to lower case
-    std::vector<std::pair<std::string, std::string>> data(person_messages.size());
+    vector<pair<std::string, string>> data(person_messages.size());
     int index = 0;
     for (auto it = person_messages.begin(); it != person_messages.end(); ++it)
     {
-        std::for_each((it->second).begin(), (it->second).end(), [](char& c) {
+        for_each((it->second).begin(), (it->second).end(), [](char& c) {
             c = std::tolower(c);
             });
-        data[index] = std::make_pair(it->first, it->second);
+        data[index] = make_pair(it->first, it->second);
         index++;
     }
     

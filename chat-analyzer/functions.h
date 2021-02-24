@@ -2,8 +2,10 @@
 #include <string>
 #include <vector>
 
-void thread_job(std::vector<std::pair<std::string, std::string>>& data, std::vector<int> indexes, std::vector<std::pair<std::string, std::vector<std::string>>>& output);
+using namespace std;
 
-std::stringstream frequent_words(std::vector<std::pair<std::string, std::string>>& data, int thread_count, int n);
+void thread_job(vector<pair<string, string>>& data, vector<int> indexes, vector<pair<string, vector<string>>>& output);
 
-std::vector<std::pair<std::string, std::string>> parse_json(const std::string filename);
+stringstream frequent_words(vector<pair<string, string>>& data, int thread_count, int n);
+
+vector<pair<string, string>> parse_json(const string filename);
