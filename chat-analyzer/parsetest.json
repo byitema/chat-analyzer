@@ -1,0 +1,31 @@
+﻿{
+    "name": "chat",
+    "type": "private_group",
+    "id": 654564564,
+    "messages": [
+        {
+            "id": 1,
+            "type": "message",
+            "date": "2021-02-05T12:19:35",
+            "from": "Danik",
+            "from_id": 1,
+            "text": "Hello"
+        },
+        {
+            "id": 2,
+            "type": "message",
+            "date": "2021-02-05T12:19:59",
+            "from": "Danik",
+            "from_id": 1,
+            "text": "From me"
+        },
+        {
+            "id": 3,
+            "type": "message",
+            "date": "2021-02-05T12:19:59",
+            "from": "Artem",
+            "from_id": 2,
+            "text": "Second user"
+        }
+    ]
+}
